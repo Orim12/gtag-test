@@ -11,12 +11,34 @@
         gtag('config', 'G-BDTYYQW1DE');
 
 
-    function sendEvent(action, category, label) {
-    gtag('event', action, {
-    'event_category': category,
-    'event_label': label
-    });
-    }
+        function sendEvent(action, category, label) {
+            dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+            dataLayer.push({
+                event: "add_to_cart",
+                ecommerce: {
+                    // Sum of (price * quantity) for all items.
+                    value: 15.00,
+                    currency: "EUR",
+                    items: [
+                        {
+                            item_id: "10030300",
+                            item_name: "Cirkelzaagmachine 230 volt 235 mm.",
+                            affiliation: "123Machineverhuur Apeldoorn",
+                            coupon: "undefined",
+                            discount: 0,
+                            index: 0,
+                            item_brand: "123Machineverhuur",
+                            item_category: "Houtbewerking",
+                            item_category2: "Zaagmachines",
+                            location_id: "ChIJYaNC9ua4x0cRDqJ0CdBoC18",
+                            price: 15.00,
+                            quantity: 1
+                        }]
+                }
+            });
+
+        }
+
 
     </script>
 
